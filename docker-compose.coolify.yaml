@@ -131,7 +131,6 @@ services:
       - POSTGRES_USER=temporal
       - POSTGRES_PWD=${SERVICE_PASSWORD_TEMPORAL}
       - POSTGRES_SEEDS=temporal-postgresql
-      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
       - ENABLE_ES=true
       - ES_SEEDS=temporal-elasticsearch
       - ES_VERSION=v7
@@ -139,8 +138,6 @@ services:
       # Fix for Coolify attaching two networks (same fix applied to Dittofeed)
       - BIND_ON_IP=0.0.0.0
       - TEMPORAL_BROADCAST_ADDRESS=127.0.0.1
-    volumes:
-      - ./dynamicconfig:/etc/temporal/config/dynamicconfig
     expose:
       - "7233"
 
